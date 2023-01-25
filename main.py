@@ -81,11 +81,11 @@ def missCalc(power, intLimit):
                     temp = miss / total
                 if len(lowest) == 0 :
                     lowest.append(temp)
-                    print(f"x = {x}, y = {y}, z = {z}, miss = {miss}, percentage = " + "{:.4%}".format(lowest[0]))
+                    print(f"x = {x}, y = {y}, z = {z}, miss = {miss}, percentage = {lowest[0] * 100}")
 
                 elif temp < lowest[0] :
                     lowest[0] = temp
-                    print(f"x = {x}, y = {y}, z = {z}, miss = {miss}, percentage =" + " {:.4%}".format(lowest[0]))
+                    print(f"x = {x}, y = {y}, z = {z}, miss = {miss}, percentage = { lowest[0] * 100}")
 
 
 
