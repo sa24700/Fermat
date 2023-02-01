@@ -1,5 +1,5 @@
 #•	Fermat's Last Theorem Near Miss Calculator
-#	fermat.py
+#	main.py
 
 #	N/A a list of any external files necessary to run your program
 #	N/A a list of external files your program creates (If you list any external files, briefly explain what each of them contains.)
