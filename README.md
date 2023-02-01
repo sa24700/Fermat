@@ -1,4 +1,7 @@
 # Fermat Calculator
+# Authors:
+  Shawn Amato / Nikos Palivos
+  shawnlamato AT lewisu DOT edu / nikos.palivos AT lewisu DOT edu
 
 # Instructions:
   
