@@ -1,4 +1,4 @@
-# Fermat Calculator
+# Fermat Near Miss Calculator
 # Authors:
   Shawn Amato / Nikos Palivos
 
