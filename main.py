@@ -6,11 +6,10 @@
 #	Shawn Amato / Nikos Palivos
 #	shawnlamato@lewisu.edu / nikos.palivos@lewisu.edu
 #	CPSC-4400-LT1
-#   2/4/23
+#   2/5/23
 #	This program takes user input of a desired power and upper range. It then uses these numbers to calculate nears misses
 #       of Fermat's Last Theorem, and displays the lowest found near miss
-#	N/A any resources you used to complete the program (Always give credit where credit is due; for example,
-#   	if you used a website to check on an algorithm, list that here.)
+#	used pyinstaller to make the exe.
 
 # function to close the application
 def exitCondition():
@@ -26,15 +25,15 @@ def exitCondition():
 
 # function to get the user's desired power
 def getPow():
-    powFlag = False # controls the while loop on line 32
+    powFlag = False # controls the while loop on line 31
 
     # loop to ensure a proper number is entered
     while powFlag == False :
-        inputPower =  input("Choose a power that is 3 or higher: ")  # hold the user input
+        inputPower =  input("Choose a power that is between 3 and 11: ")  # hold the user input
 
         if inputPower.lstrip('-').isdigit() == False :
             print(inputPower + ' is not a number.')
-        elif(int(inputPower) < 3 or int(inputPower) > 12):
+        elif(int(inputPower) < 3 or int(inputPower) > 11):
             print(inputPower + ' is not a valid entry.')
         else:
             powFlag = True  # ending the while loop
@@ -43,7 +42,7 @@ def getPow():
 
 # function to get the user's desired upper bounds number
 def getK():
-    intFlag = False # controls the while loop on line 49
+    intFlag = False # controls the while loop on line 48
 
     # loop to ensure a proper number is entered
     while intFlag == False:
@@ -62,7 +61,7 @@ def getK():
 def missCalc(power, intLimit):
 
     lowest = [] # will hold the smallest near miss
-    lowestMiss = 0 # holds the lowest miss so it can be used in print statements
+    lowestMiss = 0 # holds the smallest near miss so it can be used in outside print statements
 
     # loop for going through the x ** n values
     for x in range(10, int(intLimit) + 1) :
@@ -80,9 +79,9 @@ def missCalc(power, intLimit):
                     z += 1 # incrementing z value
 
                 upper = z ** int(power) # assigning (z+1)**n value to upper
-                #print(f"x = {x}, y = {y}, z = {z}, lower = {lower}, total = {total}, upper = {upper})")
+
                 if total - lower < upper - total :
-                    z -= 1 #decrementing z by one to get correct z value for print statement
+                    z -= 1  # decrementing z by one to get correct z value for print statement
                     miss = total - lower
                     temp = miss / total
                 else :
@@ -93,15 +92,15 @@ def missCalc(power, intLimit):
                 if len(lowest) == 0 :
                     lowest.append(temp)
                     lowestMiss = miss
-                    print(f"x = {x}, y = {y}, z = {z}, miss = {lowestMiss}, percentage = {lowest[0] * 100}")
+                    print(f"x = {x}, y = {y}, z = {z}, miss = {lowestMiss}, percentage = {lowest[0] * 100}%")
 
                 elif temp < lowest[0] :
                     lowest[0] = temp
                     lowestMiss = miss
-                    print(f"x = {x}, y = {y}, z = {z}, miss = {lowestMiss}, percentage = {lowest[0] * 100}")
+                    print(f"x = {x}, y = {y}, z = {z}, miss = {lowestMiss}, percentage = {lowest[0] * 100}%")
 
     print("")
-    print(f"The smallest near miss is {lowestMiss} with a percentage of {lowest[0] * 100}")
+    print(f"The smallest near miss is {lowestMiss} with a percentage of {lowest[0] * 100}%")
 
 
 
@@ -114,7 +113,9 @@ print("Assignment 1 - Group 4")
 print()
 print("Fermat's Theorem: x"+ chr(0x207F) + " + y" + chr(0x207F) + " <> z"+ chr(0x207F))
 print()
+# holds validated user entered power
 power  = getPow()
+# holds validated user entered upper limit
 intLimit  = getK()
 missCalc(power, intLimit)
 exitCondition()
